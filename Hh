@@ -1,0 +1,1487 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+
+local Window = Library.CreateLib("SlapX | Hub V1", "Sentinel")
+
+-- HOME
+
+local Home = Window:NewTab("Home")
+
+local HomeSection = Home:NewSection("Home")
+
+HomeSection:NewLabel("Made by SlapX ")
+
+HomeSection:NewLabel("Thanks to 1Fo for the tut")
+
+HomeSection:NewLabel("Thanks to Kavo UI Library")
+
+-- MAIN
+
+local Main = Window:NewTab("Main")
+
+local MainSection = Main:NewSection("Main")
+
+MainSection:NewButton("Fly", "Fly", function()
+
+	game:GetService("StarterGui"):SetCore("SendNotification",{		Title = "Credits";
+
+		Text = "Modified By SpekzZ";
+
+		Duration = 3.5;
+
+	})
+
+-- Gui to Lua
+
+-- Version: 3.2
+
+-- Instances:
+
+local main = Instance.new("ScreenGui")
+
+local Frame = Instance.new("Frame")
+
+local up = Instance.new("TextButton")
+
+local down = Instance.new("TextButton")
+
+local onof = Instance.new("TextButton")
+
+local TextLabel = Instance.new("TextLabel")
+
+local plus = Instance.new("TextButton")
+
+local speed = Instance.new("TextLabel")
+
+local mine = Instance.new("TextButton")
+
+--Properties:
+
+main.Name = "main"
+
+main.Parent = game.CoreGui
+
+main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = main
+
+Frame.BackgroundColor3 = Color3.fromRGB(163, 255, 137)
+
+Frame.BorderColor3 = Color3.fromRGB(103, 221, 213)
+
+Frame.Position = UDim2.new(0.100320168, 0, 0.379746825, 0)
+
+Frame.Size = UDim2.new(0, 190, 0, 57)
+
+up.Name = "up"
+
+up.Parent = Frame
+
+up.BackgroundColor3 = Color3.fromRGB(79, 255, 152)
+
+up.Size = UDim2.new(0, 44, 0, 28)
+
+up.Font = Enum.Font.SourceSans
+
+up.Text = "UP"
+
+up.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+up.TextSize = 14.000
+
+down.Name = "down"
+
+down.Parent = Frame
+
+down.BackgroundColor3 = Color3.fromRGB(215, 255, 121)
+
+down.Position = UDim2.new(0, 0, 0.491228074, 0)
+
+down.Size = UDim2.new(0, 44, 0, 28)
+
+down.Font = Enum.Font.SourceSans
+
+down.Text = "DOWN"
+
+down.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+down.TextSize = 14.000
+
+onof.Name = "onof"
+
+onof.Parent = Frame
+
+onof.BackgroundColor3 = Color3.fromRGB(255, 249, 74)
+
+onof.Position = UDim2.new(0.702823281, 0, 0.491228074, 0)
+
+onof.Size = UDim2.new(0, 56, 0, 28)
+
+onof.Font = Enum.Font.SourceSans
+
+onof.Text = "fly"
+
+onof.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+onof.TextSize = 14.000
+
+TextLabel.Parent = Frame
+
+TextLabel.BackgroundColor3 = Color3.fromRGB(242, 60, 255)
+
+TextLabel.Position = UDim2.new(0.469327301, 0, 0, 0)
+
+TextLabel.Size = UDim2.new(0, 100, 0, 28)
+
+TextLabel.Font = Enum.Font.SourceSans
+
+TextLabel.Text = "Fly Gui V2"
+
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+TextLabel.TextScaled = true
+
+TextLabel.TextSize = 14.000
+
+TextLabel.TextWrapped = true
+
+plus.Name = "plus"
+
+plus.Parent = Frame
+
+plus.BackgroundColor3 = Color3.fromRGB(133, 145, 255)
+
+plus.Position = UDim2.new(0.231578946, 0, 0, 0)
+
+plus.Size = UDim2.new(0, 45, 0, 28)
+
+plus.Font = Enum.Font.SourceSans
+
+plus.Text = "+"
+
+plus.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+plus.TextScaled = true
+
+plus.TextSize = 14.000
+
+plus.TextWrapped = true
+
+speed.Name = "speed"
+
+speed.Parent = Frame
+
+speed.BackgroundColor3 = Color3.fromRGB(255, 85, 0)
+
+speed.Position = UDim2.new(0.468421042, 0, 0.491228074, 0)
+
+speed.Size = UDim2.new(0, 44, 0, 28)
+
+speed.Font = Enum.Font.SourceSans
+
+speed.Text = "1"
+
+speed.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+speed.TextScaled = true
+
+speed.TextSize = 14.000
+
+speed.TextWrapped = true
+
+mine.Name = "mine"
+
+mine.Parent = Frame
+
+mine.BackgroundColor3 = Color3.fromRGB(123, 255, 247)
+
+mine.Position = UDim2.new(0.231578946, 0, 0.491228074, 0)
+
+mine.Size = UDim2.new(0, 45, 0, 29)
+
+mine.Font = Enum.Font.SourceSans
+
+mine.Text = "-"
+
+mine.TextColor3 = Color3.fromRGB(0, 0, 0)
+
+mine.TextScaled = true
+
+mine.TextSize = 14.000
+
+mine.TextWrapped = true
+
+speeds = 1
+
+local speaker = game:GetService("Players").LocalPlayer
+
+local chr = game.Players.LocalPlayer.Character
+
+local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+nowe = false
+
+Frame.Active = true -- main = gui
+
+Frame.Draggable = true
+
+onof.MouseButton1Down:connect(function()
+
+if nowe == true then
+
+nowe = false
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,true)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,true)
+
+speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.RunningNoPhysics)
+
+else 
+
+nowe = true
+
+for i = 1, speeds do
+
+	spawn(function()
+
+		local hb = game:GetService("RunService").Heartbeat	
+
+		tpwalking = true
+
+		local chr = game.Players.LocalPlayer.Character
+
+		local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+		while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+
+			if hum.MoveDirection.Magnitude > 0 then
+
+				chr:TranslateBy(hum.MoveDirection)
+
+			end
+
+		end
+
+	end)
+
+end
+
+game.Players.LocalPlayer.Character.Animate.Disabled = true
+
+local Char = game.Players.LocalPlayer.Character
+
+local Hum = Char:FindFirstChildOfClass("Humanoid") or Char:FindFirstChildOfClass("AnimationController")
+
+for i,v in next, Hum:GetPlayingAnimationTracks() do
+
+	v:AdjustSpeed(0)
+
+end
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Climbing,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Flying,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Freefall,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.GettingUp,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Jumping,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Landed,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Physics,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.PlatformStanding,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Ragdoll,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Running,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.RunningNoPhysics,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Seated,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.StrafingNoPhysics,false)
+
+speaker.Character.Humanoid:SetStateEnabled(Enum.HumanoidStateType.Swimming,false)
+
+speaker.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Swimming)
+
+end
+
+local plr = game.Players.LocalPlayer
+
+local UpperTorso = plr.Character.LowerTorso
+
+local flying = true
+
+local deb = true
+
+local ctrl = {f = 0, b = 0, l = 0, r = 0}
+
+local lastctrl = {f = 0, b = 0, l = 0, r = 0}
+
+local maxspeed = 50
+
+local speed = 0
+
+local bg = Instance.new("BodyGyro", UpperTorso)
+
+bg.P = 9e4
+
+bg.maxTorque = Vector3.new(9e9, 9e9, 9e9)
+
+bg.cframe = UpperTorso.CFrame
+
+local bv = Instance.new("BodyVelocity", UpperTorso)
+
+bv.velocity = Vector3.new(0,0.1,0)
+
+bv.maxForce = Vector3.new(9e9, 9e9, 9e9)
+
+if nowe == true then
+
+	plr.Character.Humanoid.PlatformStand = true
+
+end
+
+while nowe == true or game:GetService("Players").LocalPlayer.Character.Humanoid.Health == 0 do
+
+	wait()
+
+	if ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0 then
+
+		speed = speed+.5+(speed/maxspeed)
+
+		if speed > maxspeed then
+
+			speed = maxspeed
+
+		end
+
+	elseif not (ctrl.l + ctrl.r ~= 0 or ctrl.f + ctrl.b ~= 0) and speed ~= 0 then
+
+		speed = speed-1
+
+		if speed < 0 then
+
+			speed = 0
+
+		end
+
+	end
+
+	if (ctrl.l + ctrl.r) ~= 0 or (ctrl.f + ctrl.b) ~= 0 then
+
+		bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (ctrl.f+ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(ctrl.l+ctrl.r,(ctrl.f+ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+
+		lastctrl = {f = ctrl.f, b = ctrl.b, l = ctrl.l, r = ctrl.r}
+
+	elseif (ctrl.l + ctrl.r) == 0 and (ctrl.f + ctrl.b) == 0 and speed ~= 0 then
+
+		bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (lastctrl.f+lastctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(lastctrl.l+lastctrl.r,(lastctrl.f+lastctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*speed
+
+	else
+
+		bv.velocity = Vector3.new(0,0,0)
+
+	end
+
+	bg.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((ctrl.f+ctrl.b)*50*speed/maxspeed),0,0)
+
+end
+
+ctrl = {f = 0, b = 0, l = 0, r = 0}
+
+lastctrl = {f = 0, b = 0, l = 0, r = 0}
+
+speed = 0
+
+bg:Destroy()
+
+bv:Destroy()
+
+plr.Character.Humanoid.PlatformStand = false
+
+game.Players.LocalPlayer.Character.Animate.Disabled = false
+
+tpwalking = false
+
+end)
+
+up.MouseButton1Down:connect(function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,2,0)
+
+end)
+
+down.MouseButton1Down:connect(function()
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-2,0)
+
+end)
+
+game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(char)
+
+wait(0.7)
+
+game.Players.LocalPlayer.Character.Humanoid.PlatformStand = false
+
+game.Players.LocalPlayer.Character.Animate.Disabled = false
+
+end)
+
+plus.MouseButton1Down:connect(function()
+
+speeds = speeds + 1
+
+speed.Text = speeds
+
+if nowe == true then
+
+tpwalking = false
+
+for i = 1, speeds do
+
+spawn(function()
+
+	local hb = game:GetService("RunService").Heartbeat	
+
+	tpwalking = true
+
+	local chr = game.Players.LocalPlayer.Character
+
+	local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+	while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+
+		if hum.MoveDirection.Magnitude > 0 then
+
+			chr:TranslateBy(hum.MoveDirection)
+
+		end
+
+	end
+
+end)
+
+end
+
+end
+
+end)
+
+mine.MouseButton1Down:connect(function()
+
+if speeds == 1 then
+
+speed.Text = 'can not be less than 1'
+
+wait(1)
+
+speed.Text = speeds
+
+else
+
+speeds = speeds - 1
+
+speed.Text = speeds
+
+if nowe == true then
+
+tpwalking = false
+
+for i = 1, speeds do
+
+spawn(function()
+
+	local hb = game:GetService("RunService").Heartbeat	
+
+	tpwalking = true
+
+	local chr = game.Players.LocalPlayer.Character
+
+	local hum = chr and chr:FindFirstChildWhichIsA("Humanoid")
+
+	while tpwalking and hb:Wait() and chr and hum and hum.Parent do
+
+		if hum.MoveDirection.Magnitude > 0 then
+
+			chr:TranslateBy(hum.MoveDirection)
+
+		end
+
+	end
+
+end)
+
+end
+
+end
+
+end
+
+end)
+
+end)
+
+MainSection:NewButton("SlapX ESP", "Yes i made this ESP", function()
+
+	local Players = game:GetService("Players"):GetChildren()
+
+	local RunService = game:GetService("RunService")
+
+	local highlight = Instance.new("Highlight")
+
+	highlight.Name = "Highlight"
+
+	
+
+	for i, v in pairs(Players) do
+
+		repeat wait() until v.Character
+
+		if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+
+			local highlightClone = highlight:Clone()
+
+			highlightClone.Adornee = v.Character
+
+			highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
+
+			highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+
+			highlightClone.Name = "Highlight"
+
+		end
+
+	end
+
+	
+
+	game.Players.PlayerAdded:Connect(function(player)
+
+		repeat wait() until player.Character
+
+		if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+
+			local highlightClone = highlight:Clone()
+
+			highlightClone.Adornee = player.Character
+
+			highlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+
+			highlightClone.Name = "Highlight"
+
+		end
+
+	end)
+
+	
+
+	game.Players.PlayerRemoving:Connect(function(playerRemoved)
+
+		playerRemoved.Character:FindFirstChild("HumanoidRootPart").Highlight:Destroy()
+
+	end)
+
+	
+
+	RunService.Heartbeat:Connect(function()
+
+		for i, v in pairs(Players) do
+
+			repeat wait() until v.Character
+
+			if not v.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+
+				local highlightClone = highlight:Clone()
+
+				highlightClone.Adornee = v.Character
+
+				highlightClone.Parent = v.Character:FindFirstChild("HumanoidRootPart")
+
+				highlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+
+				highlightClone.Name = "Highlight"
+
+				task.wait()
+
+			end
+
+	end
+
+	end)
+
+end)
+
+MainSection:NewButton("Tracers", "Lines to poeple ", function()
+
+	local Line = Drawing.new("Line")
+
+	Line.Visible = true
+
+	Line.From = Vector2.new(0, 0)
+
+	Line.To = Vector2.new(200, 200)
+
+	Line.Color = Color3.fromRGB(255, 255, 255)
+
+	Line.Thickness = 2
+
+	Line.Transparency = 1
+
+	LIne.ZIndex = 1
+
+	
+
+	wait(5)
+
+	
+
+	Line:Remove() --Drawing objects are manually managed.
+
+	
+
+end)
+
+MainSection:NewButton("Hitbox", "Bigger hitbox", function()
+
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/RectangularObject/Roblox-Hitbox-Expander/main/HitboxExtenderv2.lua",true))()
+
+end)
+
+-- PLAYER
+
+local Player = Window:NewTab("Player")
+
+local PlayerSection = Player:NewSection("Player")
+
+PlayerSection:NewButton("Walkspeed", "go fast", function()
+
+-- This walkspeed script is the same as others , but does not change to default speed when you reset. ENJOY !    
+
+_G.HackedWalkSpeed = 100
+
+local Plrs = game:GetService("Players")
+
+local MyPlr = Plrs.LocalPlayer
+
+local MyChar = MyPlr.Character
+
+if MyChar then
+
+local Hum = MyChar.Humanoid
+
+Hum.Changed:connect(function()
+
+Hum.WalkSpeed = _G.HackedWalkSpeed
+
+end)
+
+Hum.WalkSpeed = _G.HackedWalkSpeed
+
+end
+
+MyPlr.CharacterAdded:connect(function(Char)
+
+MyChar = Char
+
+repeat wait() until Char:FindFirstChild("Humanoid")
+
+local Hum = Char.Humanoid
+
+Hum.Changed:connect(function()
+
+Hum.WalkSpeed = _G.HackedWalkSpeed
+
+end)
+
+Hum.WalkSpeed = _G.HackedWalkSpeed
+
+end)
+
+-- end of script :)
+
+end)
+
+PlayerSection:NewButton("AutoJump", "Jump for you ", function()
+
+	while true do wait()
+
+		game.Players.LocalPlayer.Character.Humanoid.Jump = true
+
+		end
+
+		--roblox autojump script
+
+	end)
+
+	PlayerSection:NewButton("Walk on Walls", "Walk on anywalls ", function()
+
+		loadstring(game:HttpGet("https://pastebin.com/raw/zXk4Rq2r"))()
+
+		end)
+
+		PlayerSection:NewSlider("Fov", "Change fov", 150, 0, function(s) -- 150 (MaxValue) | 0 (MinValue)
+
+			local amount = 150
+
+ 
+
+			game:GetService'Workspace'.Camera.FieldOfView = 150
+
+				end)
+
+-- SETTING
+
+local Setting = Window:NewTab("Settings")
+
+local SettingSection = Setting:NewSection("Setting")
+
+SettingSection:NewButton("pfp booster", "booster", function()
+
+	local RemovePlrGuis = false
+
+	local No3DRendering = false
+
+	
+
+	if not game['Loaded'] or not game:GetService('Players')['LocalPlayer'] then
+
+		game['Loaded']:Wait();
+
+		game:WaitForChild(game:GetService('Players'));
+
+		game:GetService('Players'):WaitForChild(game:GetService('Players').LocalPlayer.Name)
+
+	end
+
+	
+
+	local LP = game:GetService('Players').LocalPlayer
+
+	--// Physics Settings
+
+	settings().Physics.PhysicsEnvironmentalThrottle = 1
+
+	settings().Rendering.QualityLevel = 'Level01'
+
+	UserSettings():GetService('UserGameSettings').MasterVolume = 0
+
+	-- Comment line 7 if you want to be able to hear your game, keep it the same if you're using it for bots.
+
+	
+
+	--// Hidden Functions
+
+	setsimulationradius(0, 0)
+
+	setfpscap(144)
+
+	
+
+	--// Physical/UI Derender
+
+	for _, v in next, game:GetDescendants() do
+
+		if v:IsA('Workspace') then
+
+			sethiddenproperty(v, 'StreamingTargetRadius', 64)
+
+			sethiddenproperty(v, 'StreamingPauseMode', 2)
+
+			sethiddenproperty(v.Terrain, 'Decoration', false)
+
+			v.Terrain.Elasticity = 0
+
+			v.Terrain.WaterWaveSize = 0
+
+			v.Terrain.WaterWaveSpeed = 0
+
+			v.Terrain.WaterReflectance = 0
+
+			v.Terrain.WaterTransparency = 1
+
+		elseif v:IsA('RunService') and No3DRendering then
+
+			v:Set3dRenderingEnabled(false)
+
+			v:setThrottleFramerateEnabled(true)
+
+		elseif v:IsA('NetworkClient') then
+
+			v:SetOutgoingKBPSLimit(100)
+
+		elseif v:IsA('Lighting') then
+
+			sethiddenproperty(v, 'Technology', 2)
+
+			v.GlobalShadows = false
+
+			v.FogEnd = 1/0
+
+			v.Brightness = 0
+
+		elseif v:IsA('Model') then
+
+			sethiddenproperty(v, 'LevelOfDetail', 1)
+
+		elseif LP and v == LP then
+
+			v.ReplicationFocus = nil
+
+		elseif v:IsA('Decal') or v:IsA('Texture') or v:IsA('Beam') then
+
+			v.Transparency = 1
+
+		elseif v:IsA('Fire') or v:IsA('SpotLight') or v:IsA('Smoke') or v:IsA('Sparkles') then
+
+			v.Enabled = false
+
+		elseif v:IsA('SpecialMesh') then
+
+			v.TextureId = ''
+
+			v.MeshId = ''
+
+		elseif v:IsA('ParticleEmitter') or v:IsA('Trail') then
+
+			v.Lifetime = NumberRange.new(0)
+
+		elseif v:IsA('BlurEffect') or v:IsA('SunRaysEffect') or v:IsA('ColorCorrectionEffect') or v:IsA('BloomEffect') or v:IsA('DepthOfFieldEffect')  then
+
+			v.Enabled = false
+
+		elseif v:IsA('BasePart') and not v:IsA('MeshPart') then
+
+			v.Reflectance = 0
+
+			v.Material = 'SmoothPlastic'
+
+		elseif v:IsA('Pants') or v:IsA('Shirt') then
+
+			v[v.ClassName..'Template'] = ''
+
+		elseif v:IsA('Explosion') then
+
+			v.BlastPressure = 0
+
+			v.BlastRadius = 0
+
+			v.Visible = false
+
+			v.Position = Vector3.new(0, 0, 0)
+
+		elseif v:IsA('ForceField') then
+
+			v.Visible = false
+
+		elseif v:IsA('ShirtGraphic') then
+
+			v.Graphic = ''
+
+		elseif v:IsA('MeshPart') then
+
+			v.MeshId = ''
+
+			v.TextureID = ''
+
+			v.Reflectance = 0
+
+			v.Material = 'SmoothPlastic'
+
+		elseif v:IsA('CharacterMesh') then
+
+			v.BaseTextureId = ''
+
+			v.MeshId = ''
+
+			v.OverlayTextureId = ''
+
+		elseif v:IsA('Sound') then
+
+			v.SoundId = ''
+
+			v.Volume = 0
+
+		elseif v:IsA('PlayerGui') and RemovePlrGuis then
+
+			v:ClearAllChildren()
+
+		end
+
+	end
+
+	
+
+	local WorkspaceChildAdded;WorkspaceChildAdded = workspace.DescendantAdded:Connect(function(v)
+
+		wait()
+
+		if v:IsA('Model') then
+
+			sethiddenproperty(v, 'LevelOfDetail', 1)
+
+		elseif LP and v == LP then
+
+			v.ReplicationFocus = nil
+
+		elseif v:IsA('Decal') or v:IsA('Texture') or v:IsA('Beam') then
+
+			v.Transparency = 1
+
+		elseif v:IsA('Fire') or v:IsA('SpotLight') or v:IsA('Smoke') or v:IsA('Sparkles') then
+
+			v.Enabled = false
+
+		elseif v:IsA('SpecialMesh') then
+
+			v.TextureId = ''
+
+			v.MeshId = ''
+
+		elseif v:IsA('ParticleEmitter') or v:IsA('Trail') then
+
+			v.Lifetime = NumberRange.new(0)
+
+		elseif v:IsA('BlurEffect') or v:IsA('SunRaysEffect') or v:IsA('ColorCorrectionEffect') or v:IsA('BloomEffect') or v:IsA('DepthOfFieldEffect')  then
+
+			v.Enabled = false
+
+		elseif v:IsA('BasePart') and not v:IsA('MeshPart') then
+
+			v.Reflectance = 0
+
+			v.Material = 'SmoothPlastic'
+
+		elseif v:IsA('Pants') or v:IsA('Shirt') then
+
+			v[v.ClassName..'Template'] = ''
+
+		elseif v:IsA('Explosion') then
+
+			v.BlastPressure = 0
+
+			v.BlastRadius = 0
+
+			v.Visible = false
+
+			v.Position = Vector3.new(0, 0, 0)
+
+		elseif v:IsA('ForceField') then
+
+			v.Visible = false
+
+		elseif v:IsA('ShirtGraphic') then
+
+			v.Graphic = ''
+
+		elseif v:IsA('MeshPart') then
+
+			v.MeshId = ''
+
+			v.TextureID = ''
+
+			v.Reflectance = 0
+
+			v.Material = 'SmoothPlastic'
+
+		elseif v:IsA('CharacterMesh') then
+
+			v.BaseTextureId = ''
+
+			v.MeshId = ''
+
+			v.OverlayTextureId = ''
+
+		elseif v:IsA('Sound') then
+
+			v.SoundId = ''
+
+			v.Volume = 0
+
+		end
+
+	end)
+
+	end)
+
+	
+
+-- OTHER
+
+local Other = Window:NewTab("Others")
+
+local OtherSection = Other:NewSection("Others")
+
+OtherSection:NewButton("Keybored", "Get a keybored", function()
+
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+
+end)
+
+OtherSection:NewButton("Shift lock", "lock player", function()
+
+--Scripted by FilipFree_Stylee
+
+local SHOW_CENTER_CURSOR = true
+
+local MOBILE_ENABLED = true
+
+local CONSOLE_ENABLED = true
+
+local CONSOLE_BUTTON = Enum.KeyCode.ButtonR2
+
+local UserInputService = game:GetService("UserInputService")
+
+local RunService = game:GetService("RunService")
+
+local GuiService = game:GetService("GuiService")
+
+local Player = game.Players.LocalPlayer
+
+local IsMobile = UserInputService.TouchEnabled
+
+local IsConsole = GuiService:IsTenFootInterface()
+
+local UserGameSettings = UserSettings():GetService("UserGameSettings")
+
+local offset = CFrame.new(1.75, 0, 0)
+
+if (IsMobile and MOBILE_ENABLED) or (IsConsole and CONSOLE_ENABLED) then
+
+	local Activated = false
+
+	
+
+	local SHIFT_LOCK_OFF = 'rbxasset://textures/ui/mouseLock_off.png'
+
+	local SHIFT_LOCK_ON = 'rbxasset://textures/ui/mouseLock_on.png'
+
+	local SHIFT_LOCK_CURSOR = 'rbxasset://textures/MouseLockedCursor.png'
+
+	
+
+	local middleFrame = Instance.new('Frame')
+
+	middleFrame.Name = "MiddleIcon"
+
+	middleFrame.Size = UDim2.new(.075, 0, .075, 0)
+
+	middleFrame.Position = UDim2.new(.5, 0, .5, 0)
+
+	middleFrame.AnchorPoint = Vector2.new(.5,.5)
+
+	middleFrame.BackgroundTransparency = 1
+
+	middleFrame.ZIndex = 10
+
+	middleFrame.Visible = true
+
+	middleFrame.Parent = script.Parent
+
+	
+
+	local MouseLockCursor = Instance.new('ImageLabel')
+
+	MouseLockCursor.Name = "MouseLockLabel"
+
+	MouseLockCursor.Size = UDim2.new(1, 0, 1, 0)
+
+	MouseLockCursor.Position = UDim2.new(0, 0, 0, 0)
+
+	MouseLockCursor.BackgroundTransparency = 1
+
+	MouseLockCursor.Image = SHIFT_LOCK_CURSOR
+
+	MouseLockCursor.Visible = false
+
+	MouseLockCursor.Parent = middleFrame
+
+	
+
+	local arc = Instance.new("UIAspectRatioConstraint")
+
+	arc.AspectRatio = 1
+
+	arc.DominantAxis = "Height"
+
+	arc.Parent = middleFrame
+
+	
+
+	if IsMobile and MOBILE_ENABLED then
+
+		local frame = Instance.new('Frame')
+
+		frame.Name = "BottomLeftControl"
+
+		frame.Size = UDim2.new(.1, 0, .1, 0)
+
+		frame.Position = UDim2.new(1, 0, 1, 0)
+
+		frame.AnchorPoint = Vector2.new(1,1)
+
+		frame.BackgroundTransparency = 1
+
+		frame.ZIndex = 10
+
+		frame.Parent = script.Parent
+
+		
+
+		local ShiftLockIcon = Instance.new('ImageButton')
+
+		ShiftLockIcon.Name = "MouseLockLabel"
+
+		ShiftLockIcon.Size = UDim2.new(1, 0, 1, 0)
+
+		ShiftLockIcon.Position = UDim2.new(-2.775, 0, -1.975, 0)
+
+		ShiftLockIcon.BackgroundTransparency = 1
+
+		ShiftLockIcon.Image = SHIFT_LOCK_OFF
+
+		ShiftLockIcon.Visible = true
+
+		ShiftLockIcon.Parent = frame
+
+		
+
+		local arc2 = Instance.new("UIAspectRatioConstraint")
+
+		arc2.AspectRatio = 1
+
+		arc2.DominantAxis = "Height"
+
+		arc2.Parent = frame
+
+		
+
+		ShiftLockIcon.Activated:connect(function()
+
+			Activated = not Activated
+
+			
+
+			ShiftLockIcon.Image = Activated and SHIFT_LOCK_ON or SHIFT_LOCK_OFF
+
+			MouseLockCursor.Visible = Activated and SHOW_CENTER_CURSOR
+
+		end)
+
+	end
+
+	
+
+	if IsConsole and CONSOLE_ENABLED then
+
+		UserInputService.InputBegan:Connect(function(input)
+
+			if input.KeyCode == CONSOLE_BUTTON then
+
+				Activated = not Activated
+
+				
+
+				MouseLockCursor.Visible = Activated and SHOW_CENTER_CURSOR
+
+			end
+
+		end)
+
+	end
+
+	
+
+	local function OnStep()
+
+		if Activated then
+
+			UserGameSettings.RotationType = Enum.RotationType.CameraRelative
+
+			
+
+			local Camera = workspace.CurrentCamera
+
+			if Camera then
+
+			
+
+				if (Camera.Focus.Position - Camera.CFrame.Position).Magnitude >= 0.99 then
+
+					Camera.CFrame = Camera.CFrame * offset
+
+					Camera.Focus = CFrame.fromMatrix(Camera.Focus.Position, Camera.CFrame.RightVector, Camera.CFrame.UpVector) * offset
+
+				end
+
+			end
+
+		end
+
+	end
+
+	RunService:BindToRenderStep("Mobile/ConsoleShiftLock",Enum.RenderPriority.Camera.Value+1,OnStep)
+
+end
+
+end)
+
+OtherSection:NewButton("infint yeild ", "admins commands", function()
+
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+
+end)
+
+OtherSection:NewButton("Btools", "idk", function()
+
+	local player = game.Players.LocalPlayer
+
+	local mouse = player:GetMouse()
+
+	
+
+	 -- Objects
+
+	
+
+	local ScreenGui = Instance.new("ScreenGui")
+
+	local TextButton = Instance.new("TextButton")
+
+	local On = Instance.new("StringValue")
+
+	
+
+	-- Properties
+
+	
+
+	ScreenGui.Parent = player.PlayerGui
+
+	
+
+	TextButton.Parent = ScreenGui
+
+	TextButton.BackgroundColor3 = Color3.new(0.784314, 0.784314, 0.784314)
+
+	TextButton.BorderSizePixel = 0
+
+	TextButton.Position = UDim2.new(0, 0, 0.455743879, 0)
+
+	TextButton.Size = UDim2.new(0, 186, 0, 35)
+
+	TextButton.Font = Enum.Font.SourceSans
+
+	TextButton.Text = "Btools (Off)"
+
+	TextButton.TextColor3 = Color3.new(0.27451, 0.27451, 0.27451)
+
+	TextButton.TextScaled = true
+
+	TextButton.TextSize = 14
+
+	TextButton.TextWrapped = true
+
+	
+
+	
+
+	On.Parent = TextButton
+
+	On.Value = "Off"
+
+	
+
+	-- Scripts 
+
+	
+
+	TextButton.MouseButton1Up:Connect(function()
+
+		if On.Value == "Off" then
+
+			On.Value = "On"
+
+			TextButton.Text = "Btools (On)"
+
+		else
+
+			On.Value = "Off"
+
+			TextButton.Text = "Btools (Off)"
+
+		end
+
+	end)
+
+	
+
+	mouse.Button1Up:Connect(function()
+
+		if On.Value == "Off" then
+
+			print('btools off')
+
+		else
+
+			if mouse.Target.Locked == true then
+
+				mouse.Target:Destroy()
+
+			else
+
+				mouse.Target:Destroy()
+
+			end
+
+		end
+
+	end)
+
+	end)
+
+	OtherSection:NewButton("anti lag", "ButtonInfo", function()
+
+		local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+
+		local g = game
+
+		local w = g.Workspace
+
+		local l = g.Lighting
+
+		local t = w.Terrain
+
+		t.WaterWaveSize = 0
+
+		t.WaterWaveSpeed = 0
+
+		t.WaterReflectance = 0
+
+		t.WaterTransparency = 0
+
+		l.GlobalShadows = false
+
+		l.FogEnd = 9e9
+
+		l.Brightness = 0
+
+		settings().Rendering.QualityLevel = "Level01"
+
+		for i, v in pairs(g:GetDescendants()) do
+
+			if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+
+				v.Material = "Plastic"
+
+				v.Reflectance = 0
+
+			elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+
+				v.Transparency = 1
+
+			elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+
+				v.Lifetime = NumberRange.new(0)
+
+			elseif v:IsA("Explosion") then
+
+				v.BlastPressure = 1
+
+				v.BlastRadius = 1
+
+			elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") then
+
+				v.Enabled = false
+
+			elseif v:IsA("MeshPart") then
+
+				v.Material = "Plastic"
+
+				v.Reflectance = 0
+
+				v.TextureID = 10385902758728957
+
+			end
+
+		end
+
+		for i, e in pairs(l:GetChildren()) do
+
+			if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+
+				e.Enabled = false
+
+			end
+
+		end
+
+		end)
+
+		OtherSection:NewButton("antiafk", "be afk if u want", function()
+
+			loadstring(game:HttpGet("https://raw.githubusercontent.com/KazeOnTop/Rice-Anti-Afk/main/Wind", true))()
+
+				end)
+
+				OtherSection:NewButton("spin", "spin", function()
+
+-- Made by JackMcJagger15
+
+power = 500 -- change this to make it more or less powerful
+
+game:GetService('RunService').Stepped:connect(function()
+
+game.Players.LocalPlayer.Character.Head.CanCollide = false
+
+game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+
+game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+
+game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+
+end)
+
+wait(.1)
+
+local bambam = Instance.new("BodyThrust")
+
+bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+bambam.Force = Vector3.new(power,0,power)
+
+bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+
+end)
